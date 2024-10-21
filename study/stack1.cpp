@@ -1,3 +1,4 @@
+// 栈：用数组实现栈
 #include <iostream>
 using namespace std;
 #define MAX_SIZE 101
