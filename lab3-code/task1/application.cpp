@@ -1,4 +1,3 @@
-// application.cpp
 #include "application.h"
 #include <iostream>
 #include <cmath>
