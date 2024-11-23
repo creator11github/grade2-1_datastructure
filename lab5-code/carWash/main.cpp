@@ -1,37 +1,27 @@
 #include "car.h"
 #include "washCmp.h"
 #include <iostream>
-#include <time.h>
-#include <math.h>
-#include <stdlib.h>
 using namespace std;
 
 int main()
 {
-	WashCmp cmp;
+	double lambda, mu;
+    int numCarsToSimulate;
+
+    // User inputs for arrival rate, service rate, and number of cars
+    cout << "Please input the mean arrival rate: ";
+    cin >> lambda;
+    cout << "Please input the mean service rate: ";
+    cin >> mu;
+    cout << "Please input the number of cars to be simulated: ";
+	
+    cin >> numCarsToSimulate;
+
+    // Create WashCmp object and start simulation
+    WashCmp cmp(lambda, mu, numCarsToSimulate);
 	cmp.simulation();
 	cmp.printStatistic();
-
-	/*
-	srand((unsigned int)time(0));
-	cout << RAND_MAX << endl; //32767
-	double p1 = rand() / double(RAND_MAX + 1);
-	double p2 = rand() / double(RAND_MAX + 1);
-	double p3 = rand() / double(RAND_MAX + 1);
-
-	cout << p1 << " " << p2 << " " << p3 << endl;
-
-	cout << exp(1.000) << endl;
-	cout << log(exp(1.0)) << endl;
-
-	//mean waiting time is 1.5 hour
-	//lambda = 1 / 1.5 = 0.667
-	//1 - exp(- 0.667 * t) = p
-	//log(1 - p) = - 0.667 * t
-	//t = - 1.5 * log(1 - p)
-
-	cout << "waiting time: " << -1.5 * log(1 - p1) << ", " << -1.5 * log(1 - p2) << ", " << -1.5 * log(1 - p3) << endl;
-	*/
 	
+	system("pause");
 	return 0;
 }
