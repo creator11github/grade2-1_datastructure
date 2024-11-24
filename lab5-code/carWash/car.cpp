@@ -8,7 +8,7 @@ Car::Car()
 	waitingTime = 0;
 }
 
-Car::Car(int arrivalT)
+Car::Car(double arrivalT)
 {
 	arrivalTime = arrivalT;
 	departureTime = 0; //to be set later
@@ -16,27 +16,27 @@ Car::Car(int arrivalT)
 	serviceTime = 0; //to be set later
 }
 
-int Car::getArrivalTime()
+double Car::getArrivalTime()
 {
 	return arrivalTime;
 }
 
-int Car::getDepartureTime()
+double Car::getDepartureTime()
 {
 	return departureTime;
 }
 
-int Car::getWaitingTime()
+double Car::getWaitingTime()
 {
 	return waitingTime;
 }
 
-int Car::getServiceTime()
+double Car::getServiceTime()
 {
 	return serviceTime;
 }
 
-void Car::setDepartAndWaitTime(int startServiceTime, int serviceTime)
+void Car::setDepartAndWaitTime(double startServiceTime, double serviceTime)
 {
     this->serviceTime = serviceTime;
     departureTime = startServiceTime + serviceTime;

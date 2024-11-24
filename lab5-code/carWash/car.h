@@ -4,21 +4,21 @@
 class Car
 {
 private:
-	int arrivalTime;
-	int departureTime;
-	int waitingTime;
-	int serviceTime;
+	double arrivalTime;
+	double departureTime;
+	double waitingTime;
+	double serviceTime;
 
 public:
 	Car();
-	Car(int arrivalT);
+	Car(double arrivalT);
 
-	int getArrivalTime();
-	int getDepartureTime();
-	int getWaitingTime();
-	int getServiceTime();
+	double getArrivalTime();
+	double getDepartureTime();
+	double getWaitingTime();
+	double getServiceTime();
 
-	void setDepartAndWaitTime(int currTime, int serviceTime);
+	void setDepartAndWaitTime(double currTime, double serviceTime);
 	void printCarDeparture();
 	void printCarArrival();
 };

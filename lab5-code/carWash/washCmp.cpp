@@ -15,21 +15,21 @@ WashCmp::WashCmp(double lambda, double mu, int numCars)
 	srand(time(0));
 }
 
-int WashCmp::getNextArrival()
+double WashCmp::getNextArrival()
 {
     double p = (double)rand() / RAND_MAX;
     double deltaT = (-1 / lambda) * log(1 - p);
-    return arrivalTimeNow += (int)round(deltaT);
+    return arrivalTimeNow += deltaT;
 }
 
-int WashCmp::getServiceTime()
+double WashCmp::getServiceTime()
 {
     double q = (double)rand() / RAND_MAX;
     double serviceTime = (-1 / mu) * log(1 - q);
-    return (int)round(serviceTime);
+    return serviceTime;
 }
 
-void WashCmp::processArrivalEmptyQ(int arrivalTime)
+void WashCmp::processArrivalEmptyQ(double arrivalTime)
 {
 	Car arrivedCar = Car(arrivalTime);
 	arrivedCar.setDepartAndWaitTime(arrivalTime,getServiceTime()); //set the departure and waiting time of the arrived car
@@ -37,7 +37,7 @@ void WashCmp::processArrivalEmptyQ(int arrivalTime)
 	carQueue.push(arrivedCar); //set the arrival time of the arrived car
 }
 
-void WashCmp::processArrivalNonEmptyQ(int arrivalTime)
+void WashCmp::processArrivalNonEmptyQ(double arrivalTime)
 {
 	Car arrivedCar = Car(arrivalTime);
 	arrivedCar.printCarArrival(); //print the arrival information of the arrived car
@@ -46,7 +46,7 @@ void WashCmp::processArrivalNonEmptyQ(int arrivalTime)
 
 void WashCmp::processDeparture()
 {
-	int currTime = carQueue.front().getDepartureTime(); //get the current time
+	double currTime = carQueue.front().getDepartureTime(); //get the current time
 
 	totalWaitingTime += carQueue.front().getWaitingTime(); //update statistics
 	numServedCars++; //update statistics
@@ -66,7 +66,7 @@ void WashCmp::processRemain() //wash the remaining cars in the queue
 
 void WashCmp::simulation()
 {
-	int arrivalTime = getNextArrival(); //get the first arrival time
+	double arrivalTime = getNextArrival(); //get the first arrival time
 
 	while(numServedCars < numCarsToSimulate)
 	{

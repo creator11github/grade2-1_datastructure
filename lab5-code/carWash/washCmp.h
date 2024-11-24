@@ -10,17 +10,17 @@ private:
 	std::queue<Car> carQueue;
 
 	int numServedCars;
-	int totalWaitingTime;
+	double totalWaitingTime;
 	int numCarsToSimulate;
-	int arrivalTimeNow; //previous arrival time
+	double arrivalTimeNow; //previous arrival time
 
 	double lambda;          // Arrival rate (lambda)
     double mu;              // Service rate (mu)
 
-    int getNextArrival();        // Generate next arrival time
-    int getServiceTime(); // Generate next service time
-	void processArrivalNonEmptyQ(int currTime); //a car arrives and the waiting queue is not empty
-	void processArrivalEmptyQ(int currTime); //a car arrives and the waiting queue is empty
+    double getNextArrival();        // Generate next arrival time
+    double getServiceTime(); // Generate next service time
+	void processArrivalNonEmptyQ(double currTime); //a car arrives and the waiting queue is not empty
+	void processArrivalEmptyQ(double currTime); //a car arrives and the waiting queue is empty
 	void processDeparture();
 	void processRemain(); //no more arriving cars, process the remaining cars in the waiting queue
 
