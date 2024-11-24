@@ -14,14 +14,19 @@ int main()
     cout << "Please input the mean service rate: ";
     cin >> mu;
     cout << "Please input the number of cars to be simulated: ";
-	
     cin >> numCarsToSimulate;
+    if (mu <= lambda)
+    {
+        cout << "The service rate must be greater than the arrival rate." << endl;
+        system("pause");
+        return 0;
+    }
 
     // Create WashCmp object and start simulation
     WashCmp cmp(lambda, mu, numCarsToSimulate);
 	cmp.simulation();
 	cmp.printStatistic();
-	
+
 	system("pause");
 	return 0;
 }
